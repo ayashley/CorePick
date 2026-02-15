@@ -40,7 +40,6 @@ export async function POST(req: Request) {
     // 5. AIの設定
     const model = genAI.getGenerativeModel({
       model: "gemini-3-flash-preview",
-      // ↓ JSONモードを強制する設定（これが重要！）
       generationConfig: { responseMimeType: "application/json" }
     });
 
@@ -71,7 +70,7 @@ export async function POST(req: Request) {
 
     console.log("📦 Raw AI Response:", responseText);
 
-    // 7. JSONのお掃除（エラー対策）
+    // 7. JSONの掃除（エラー対策）
     let jsonStr = responseText.replace(/```json/g, "").replace(/```/g, "").trim();
 
     // 末尾のカンマエラーを消す魔法のコード

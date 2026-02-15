@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-// 1. データの形を定義（仕様書通り！）
+// 1. データの形を定義
 export interface Step {
   id: string;
   order: number;
