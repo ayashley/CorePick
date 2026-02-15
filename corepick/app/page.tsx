@@ -96,19 +96,19 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 入力エリア */}
-        <div className="flex gap-2 shadow-sm sticky top-4 z-10 bg-slate-50/80 backdrop-blur-sm p-2 rounded-xl">
+        {/* 入力エリア（スマホ対応版） */}
+        <div className="flex flex-col sm:flex-row gap-3 shadow-sm sticky top-4 z-10 bg-slate-50/90 backdrop-blur-sm p-3 rounded-xl border border-slate-100">
           <Input
             placeholder="記事や動画のURLを貼ってください (https://...)"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="h-12 text-lg bg-white border-blue-100 focus:border-blue-500"
+            className="h-12 text-lg bg-white border-blue-100 focus:border-blue-500 shadow-sm"
             disabled={loading}
           />
           <Button
             onClick={handleGenerate}
             disabled={loading || !url}
-            className="h-12 px-8 text-lg font-bold bg-blue-600 hover:bg-blue-700 transition-all shadow-md"
+            className="h-12 px-8 text-lg font-bold bg-blue-600 hover:bg-blue-700 transition-all shadow-md w-full sm:w-auto"
           >
             {loading ? "..." : "Pick!"}
           </Button>
