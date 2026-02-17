@@ -28,7 +28,7 @@ Web記事やYouTube動画のURLを入力するだけで、Gemini AIがその内�
 
 - **Frontend**: Next.js (App Router), TypeScript, React
 - **UI/Styling**: Tailwind CSS, shadcn/ui, Lucide React
-- **AI Model**: Google Gemini API (gemini-3.0-flash)
+- **AI Model**: Google Gemini API (gemini-3-flash-preview)
 - **State Management**: Zustand (LocalStorage persistence)
 - **Scraping**: Cheerio
 - **Deploy**: Vercel
