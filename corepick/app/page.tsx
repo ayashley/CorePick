@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Trash2, ExternalLink, CheckCircle2, Circle, ChevronDown, ChevronUp } from "lucide-react";
+import { Trash2, ExternalLink, CheckCircle2, Circle, ChevronDown } from "lucide-react";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -197,7 +197,7 @@ export default function Home() {
                         className="text-xs flex items-center gap-1 text-blue-500 hover:underline w-fit"
                       >
                         <ExternalLink className="w-3 h-3" />
-                        元記事を開く
+                        {card.url.includes("youtube.com") || card.url.includes("youtu.be") ? "元動画を開く" : "元記事を開く"}
                       </a>
                     </div>
 

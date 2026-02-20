@@ -13,7 +13,7 @@ function isYouTubeUrl(url: string) {
 async function handleYouTube(url: string) {
   let title = "YouTube動画";
 
-  // oEmbedでタイトル取得（そのまま流用）
+  // oEmbedでタイトル取得
   try {
     const oembedRes = await fetch(
       `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`
@@ -58,7 +58,7 @@ ${title}
   return result.response.text();
 }
 
-// ===== 記事専用処理（ほぼ元コード） =====
+// ===== 記事専用処理 =====
 async function handleWebPage(url: string) {
   let title = "";
 
@@ -69,7 +69,7 @@ async function handleWebPage(url: string) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  // ノイズ除去（元コードそのまま）
+  // ノイズ除去
   $("script, style, nav, header, footer, aside, iframe, noscript, .menu, .sidebar, .ad, [role='navigation'], [role='banner']").remove();
 
   const metaDesc = $('meta[name="description"]').attr("content") || "";
@@ -140,7 +140,7 @@ export async function POST(req: Request) {
       responseText = await handleWebPage(url);
     }
 
-    // JSON整形（元コード流用）
+    // JSON整形
     let jsonStr = responseText
       .replace(/```json/g, "")
       .replace(/```/g, "")
